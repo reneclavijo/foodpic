@@ -1,0 +1,20 @@
+<div class="columns">
+    <div class="column is-3">
+        <figure class="image is-128x128 mx-auto">
+            <%= image_tag current_user.avatar, class: 'is-rounded' %>
+        </figure>        
+    </div>
+    <div class="column is-9">
+        <p class="is-size-4 mb-3"><%= current_user.username %></p>
+        <div class="columns">
+            <div class="column is-3">
+                <b><%= current_user.posts.count %></b> posts
+            </div>
+            <div class="column is-3">
+                <b><%= current_user.comments.count %></b> comments
+            </div>
+        </div>
+        <p><%= current_user.email %> 📫</p>
+        <p><%= current_user.birthday %> 🎂</p>
+    </div>
+</div>

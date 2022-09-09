@@ -1,0 +1,29 @@
+<nav class="navbar columns is-mobile is-centered is-danger" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand column is-3 px-0">
+            <%= link_to root_path, class: 'navbar-item' do %>
+                <b>FoodPic</b>
+            <% end %>
+        </div>
+        <div class="navbar-menu column is-3 px-0">
+            <!-- navbar start, navbar end -->
+        
+            <div class="navbar-end">     
+                <div class="navbar-item">
+                    <%= link_to "📸", new_post_path %>
+                </div>           
+                <div class="navbar-item">
+                    <%= link_to "🏠", root_path %>
+                </div>
+                <div class="navbar-item">
+                    <%= link_to "👦", profile_path %>
+                </div>
+
+                <% if user_signed_in? %>
+                    <div class="navbar-item">
+                        <%= link_to "🔐", destroy_user_session_path, data: { "turbo-method": :delete, "turbo-confirm": "Are you sure you want to sign out?" } %>
+                    </div>
+                <% end %>
+            </div>
+        </div>        
+  
+</nav>

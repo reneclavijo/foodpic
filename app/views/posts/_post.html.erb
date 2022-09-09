@@ -22,15 +22,14 @@
         </figure>
       </div>
       <div class="media-content">
-        <p class="title is-4"><%= current_user.username %></p>
-        <p class="subtitle is-6">@<%= current_user.username %></p>
+        <p class="title is-4">@<%= post.user.username %></p>
       </div>
     </div>
 
     <div class="content">
       <%= post.description %>
       <br>
-      <time datetime="2016-1-1"> <%= post.created_at %> </time>
+      <time datetime="2016-1-1"> <%= post.created_at.strftime('%d %b %Y') %> </time>
     </div>
   </div>
 </div>

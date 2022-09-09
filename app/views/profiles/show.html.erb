@@ -1,0 +1,9 @@
+<%= render "shared/profile" %>
+
+<div class="columns">
+    <% @posts.each do |post| %>
+        <div class="column">
+            <%= render "posts/user_post", post: post %>            
+        </div>
+    <% end %>
+</div>
