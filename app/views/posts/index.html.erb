@@ -1,10 +1,7 @@
-<div id="posts" class="columns is-justify-content-space-between mt-5">
+<div id="posts" class="columns is-multiline is-justify-content-space-between mt-5">
   <% @posts.each do |post| %>
-    <div class="column is-5">
+    <div class="column is-6">
       <%= render post %>
-      <p>
-        <%= link_to "Show this post", post %>
-      </p>
     </div>
   <% end %>
 </div>

@@ -1,7 +1,11 @@
 <div class="columns">
     <div class="column is-3">
         <figure class="image is-128x128 mx-auto">
-            <%= image_tag current_user.avatar, class: 'is-rounded' %>
+            <% if current_user.avatar.attached? %>
+                <%= image_tag post.user.avatar, class: 'is-rounded' %>
+            <% else %>
+                <%= image_tag "profile_placeholder.png", class: 'is-rounded' %>
+            <% end %>
         </figure>        
     </div>
     <div class="column is-9">
