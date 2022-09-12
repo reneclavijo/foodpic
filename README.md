@@ -1,24 +1,6 @@
-# README
+# FoodPic
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicación web orientada a ser una platforma de comida centrada en las recetas y todo lo que tenga que ver de comida.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Podrás unirte y ver lo que tenemos por el momento en la siguiente dirección
+[Da clic para ver nuestro trabajo hasta el momento](https://gentle-atoll-85144.herokuapp.com/)
