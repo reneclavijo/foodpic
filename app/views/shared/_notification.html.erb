@@ -1,4 +1,10 @@
-<div class="notification is-primary">
-  <button class="delete"></button>
-  <%= notice %>
-</div>
+<% if notice %>  
+  <div class="notification is-primary">
+    <%= notice %>
+  </div>
+<% end %>
+<% if flash[:error] %>  
+  <div class="notification is-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>

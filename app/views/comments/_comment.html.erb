@@ -1,17 +1,20 @@
 <div id="<%= dom_id comment %>">
-  <p>
-    <strong>Text:</strong>
-    <%= comment.text %>
-  </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= comment.user_id %>
-  </p>
-
-  <p>
-    <strong>Post:</strong>
-    <%= comment.post_id %>
-  </p>
+ <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <%= render "shared/avatar_user", user: comment.user %>
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= comment.user.username %></strong> <small>@<%= comment.user.username %></small> <small><%= time_ago_in_words(comment.created_at) %></small>
+          <br>
+          <%= comment.text %>
+        </p>
+      </div>      
+    </div>
+  </article>
 
 </div>

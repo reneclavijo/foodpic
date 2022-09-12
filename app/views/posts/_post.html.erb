@@ -1,42 +1,56 @@
 <div id="<%= dom_id post %>">
 
-<div class="card">
-  <div class="card-image">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <% post.pictures.each do |picture| %>
-            <div class="swiper-slide">
-              <figure class="image is-4by3">
-                <%= image_tag picture %>
-              </figure>
-            </div>
-          <% end %>
+  <div class="card">
+    <div class="card-image">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <% post.pictures.each do |picture| %>
+              <div class="swiper-slide">
+                <figure class="image is-4by3">
+                  <%= image_tag picture %>
+                </figure>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <%= render "shared/avatar_user", user: post.user %>
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4"><%= post.user.username %></p>
+          <p class="subtitle is-6"><%= post.user.birthday %></p>
         </div>
       </div>
-  </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-        <% if post.user.avatar.attached? %>
-          <%= image_tag post.user.avatar, class: 'is-rounded' %>
-        <% else %>
-          <%= image_tag "profile_placeholder.png", class: 'is-rounded' %>
-        <% end %>
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-4"><%= post.user.username %></p>
-        <p class="subtitle is-6"><%= post.user.birthday %></p>
-      </div>
-    </div>
 
-    <div class="content">
-      <%= post.description.truncate(50) %>
-      <br>
-      <time datetime="2016-1-1"> <%= post.created_at.strftime('%d %b %Y') %> </time>
+      <div class="content">
+        <%= post.description.truncate(50) %>
+        <br>
+        <time datetime="2016-1-1"> <%= post.created_at.strftime('%d %b %Y') %> </time>
+        <hr>
+
+        <!-- Agregando los comentarios realizados por los usuarios -->
+        <% post.comments.each do |comment| %>
+          <%= render "comments/comment", comment: comment %>
+        <% end %>
+
+        <!-- El formulario para agregar un nuevo comentario al post -->
+        <%= render "comments/form", post: post, comment: post.comments.build %>
+      </div>
     </div>
+    
+    <!-- Footer en caso de ser el dueño del post -->
+    <% if post.user == current_user %>
+      <footer class="card-footer">
+                  <%= link_to "Show", post, class: 'card-footer-item' %>
+                  <%= link_to "Edit", edit_post_path(post), class: 'card-footer-item' %>
+                  <%= link_to "Delete", post, class: 'card-footer-item', data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %>
+      </footer>
+    <% end %>
   </div>
-</div>
 
 </div>

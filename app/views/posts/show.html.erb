@@ -1,7 +1,3 @@
 <%= render "shared/notification" %>
 
-<% if @post.user == current_user %>
-  <%= render "user_post", post: @post %>
-<% else %>
-  <%= render @post %>
-<% end %>
+<%= render @post %>
